@@ -1,6 +1,19 @@
 <template>
   <div class="home">
-    <p>bestlmc</p>
+    <a-carousel autoplay>
+      <div class="pic-box">
+        <img src="@/static/images/home/circle.png" width="100%" height="100%" alt />
+      </div>
+      <div class="pic-box">
+        <img src="@/static/images/home/fog.png" width="100%" height="100%" alt />
+      </div>
+      <div class="pic-box">
+        <img src="@/static/images/home/imagine.png" width="100%" height="100%" alt />
+      </div>
+      <div class="pic-box">
+        <img src="@/static/images/home/darkline.png" width="100%" height="100%" alt />
+      </div>
+    </a-carousel>
   </div>
 </template>
 
@@ -35,3 +48,23 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.pic-box {
+  width: 600px;
+  height: 600px;
+}
+
+/* For demo */
+.ant-carousel >>> .slick-slide {
+  text-align: center;
+  height: 600px;
+  line-height: 18px;
+  background: rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.ant-carousel >>> .slick-slide h3 {
+  color: #fff;
+}
+</style>

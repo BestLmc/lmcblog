@@ -1,14 +1,23 @@
 <template>
   <div id="components-layout-basic">
-    <a-layout>
+    <a-layout id="components-layout-body">
       <!-- 头部 -->
       <a-layout-header>
+        <!-- logo  start -->
+        <div>
+          <div id="head-logo">
+            <div>
+              <img src="@/assets/color.png" alt="logo" id="logo-img" />
+              <img src="@/assets/logo-name.png" alt="logo" id="logo-name" />
+            </div>
+          </div>
+        </div>
+        <!-- logo  end -->
+
         <div id="head-menu-box">
           <a-menu v-model="current" mode="horizontal">
             <!-- 首页 start -->
-            <a-menu-item key="home">
-              <a-icon type="home" />首页
-            </a-menu-item>
+            <a-menu-item key="home"> <a-icon type="home" />首页 </a-menu-item>
             <!-- 首页 start -->
 
             <a-sub-menu>
@@ -19,9 +28,7 @@
               <a-menu-item key="games">游戏区</a-menu-item>
             </a-sub-menu>
 
-            <a-menu-item key="blog">
-              <a-icon type="book" />博客
-            </a-menu-item>
+            <a-menu-item key="blog"> <a-icon type="book" />博客 </a-menu-item>
 
             <a-sub-menu>
               <span slot="title" class="submenu-title-wrapper">
@@ -35,14 +42,20 @@
       </a-layout-header>
       <!-- 头部 -->
 
+      <a-divider type="horizontal" />
       <!-- 主体 -->
       <a-layout-content>
         <router-view />
       </a-layout-content>
       <!-- 主体 -->
 
+      <a-divider type="horizontal" />
       <!-- 底部 -->
-      <a-layout-footer></a-layout-footer>
+      <a-layout-footer>
+        <div id="footer-box">
+          <p>©2021 Lmc. All rights reserved.</p>
+        </div>
+      </a-layout-footer>
       <!-- 底部 -->
     </a-layout>
   </div>
@@ -51,6 +64,7 @@
 <script>
 export default {
   name: "classic",
+  components: {},
   data() {
     return {
       current: ["mail"],
@@ -69,27 +83,49 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-#head-menu-box {
-  padding-top: 72px;
+#footer-box {
+  text-align: center;
+}
+#head-logo {
+  flex-direction: row;
+}
+#logo-img {
+  width: 100px;
+  height: 100px;
+}
+#logo-name {
+  width: 400px;
+  height: 100px;
+}
+#head-menu-box .ant-menu.ant-menu-horizontal.ant-menu-root.ant-menu-light {
+  background-color: rgba(1, 1, 1, 0.2);
+}
+#components-layout-body {
+  margin: 0px auto;
+  width: 80%;
+  background-color: rgba(16, 142, 233, 0);
 }
 #components-layout-basic {
   margin: 0px;
   padding: 0px;
+  background-image: url("~@/assets/background.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 #components-layout-basic .ant-layout-header {
-  height: 120px;
-  background: #7dbcea;
+  margin: 0px;
+  padding: 0px;
+  height: 149px;
+  background: rgba(16, 142, 233, 0);
 }
 #components-layout-basic .ant-layout-footer {
-  background: #7dbcea;
+  background: rgba(0, 0, 0, 0.2);
   color: #fff;
   height: 80px;
   line-height: 1.5;
 }
 #components-layout-basic .ant-layout-content {
-  background: rgba(16, 142, 233, 1);
-  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
   min-height: 600px;
-  line-height: 120px;
 }
 </style>
